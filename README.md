@@ -160,3 +160,8 @@ In line `28` we perform an `Invalid write of size 4` and `Address 0x51de040 is 0
 Since `10000` is integer, he need 4 bytes in the memory and `ex->x` is 0 
 bytes so we perform in invalid write here.
 
+
+## Resources
+
+1. CSE 341: Unsafe languages (C) [link](http://courses.cs.washington.edu/courses/cse341/04wi/lectures/26-unsafe-languages.html)
+2. Debugging Memory Problems [link](http://valgrind.org/gallery/linux_mag.html)
