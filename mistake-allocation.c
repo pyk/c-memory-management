@@ -14,27 +14,30 @@
 #include <string.h>
 #include <errno.h>
 
-struct example_t {
+typedef struct {
     int x;
-    char *m;
-};
+    int y;
+    char *msg;
+} obj;
 
 int 
 main()
 {
     printf("sizeof(char) = %ld bytes\n", sizeof(char));
-    printf("sizeof(struct example_t) = %ld bytes\n", sizeof(struct example_t));
+    printf("sizeof(obj) = %ld bytes\n", sizeof(obj));
 
-    /* NOTICE: sizeof(char), it should be sizeof(struct example_t) */
-    struct example_t *ex = (struct example_t *)malloc(sizeof(char));
+    /* NOTICE: sizeof(char), it should be sizeof(obj) */
+    obj *ex = (obj *)malloc(sizeof(char));
     if(ex == NULL) {
         fprintf(stderr, "error: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
-    ex->x = 10000;
-    ex->m = "message";
+    ex->x = 1;
+    ex->y = 0;
+    ex->msg = "message";
     printf("x = %d\n", ex->x);
-    printf("m = %s\n", ex->m);
+    printf("y = %d\n", ex->y);
+    printf("msg = %s\n", ex->msg);
     free(ex);
     return 0;
 }
